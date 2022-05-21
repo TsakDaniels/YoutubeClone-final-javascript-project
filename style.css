@@ -384,3 +384,8 @@ body{
     background: inherit;
     color: inherit;
 }
+
+
+a {
+    color: #242424;
+}
