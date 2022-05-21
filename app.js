@@ -1,15 +1,18 @@
-const videoCardContainer = document.querySelector('.video-container');
+const videoCardContainerGR = document.querySelector('.video-containerGR');
+const videoCardContainerUS = document.querySelector('.video-containerUS')
 
-let api_key = "AIzaSyBLBQ8PIwDCiaPwv11r9nAfcFoyEvPv29c";
+let api_key = "AIzaSyCUxOrR3OavIe-6Pja4GuIcoguqVUQ3di4";
 let video_http = "https://www.googleapis.com/youtube/v3/videos?";
 let channel_http = "https://www.googleapis.com/youtube/v3/channels?";
 
+
+//fetching most popular videos from US
 fetch(video_http + new URLSearchParams({
     key: api_key,
     part: 'snippet',
     chart: 'mostPopular',
-    maxResults: 300,
-    regionCode: 'GR'
+    regionCode: 'US',
+    maxResults: 50
 }))
 .then(res => res.json())
 .then(data => {
@@ -33,7 +36,7 @@ const getChannelIcon = (video_data) => {
 }
 
 const makeVideoCard = (data) => {
-    videoCardContainer.innerHTML += `
+    videoCardContainerUS.innerHTML += `
     <div class="video" onclick="location.href = 'https://youtube.com/watch?v=${data.id}'">
         <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
         <div class="content">
@@ -47,8 +50,56 @@ const makeVideoCard = (data) => {
     `;
 }
 
-// search bar
 
+
+
+//fetching most popular videos from GR
+fetch(video_http + new URLSearchParams({
+    key: api_key,
+    part: 'snippet',
+    chart: 'mostPopular',
+    regionCode: 'GR',
+    maxResults: 50
+}))
+.then(res => res.json())
+.then(data => {
+    data.items.forEach(item => {
+        getChannelIcon2(item);
+    })
+})
+.catch(err => console.log(err));
+
+const getChannelIcon2 = (video_data) => {
+    fetch(channel_http + new URLSearchParams({
+        key: api_key,
+        part: 'snippet',
+        id: video_data.snippet.channelId
+    }))
+    .then(res => res.json())
+    .then(data => {
+        video_data.channelThumbnail = data.items[0].snippet.thumbnails.default.url;
+        makeVideoCard2(video_data);
+    })
+}
+
+const makeVideoCard2 = (data) => {
+    videoCardContainerGR.innerHTML += `
+    <div class="video" onclick="location.href = 'https://youtube.com/watch?v=${data.id}'">
+        <img src="${data.snippet.thumbnails.high.url}" class="thumbnail" alt="">
+        <div class="content">
+            <img src="${data.channelThumbnail}" class="channel-icon" alt="">
+            <div class="info">
+                <h4 class="title">${data.snippet.title}</h4>
+                <p class="channel-name">${data.snippet.channelTitle}</p>
+            </div>
+        </div>
+    </div>
+    `;
+}
+
+
+
+// search bar
 const searchInput = document.querySelector('.search-bar');
 const searchBtn = document.querySelector('.search-btn');
 let searchLink = "https://www.youtube.com/results?search_query=";
@@ -59,7 +110,7 @@ searchBtn.addEventListener('click', () => {
     }
 })
 
-
+//Show more menu
 function dropdownMenu() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
@@ -77,3 +128,18 @@ function dropdownMenu() {
       }
     }
   }
+
+  function darkMode() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    
+    var img = document.getElementById("logoChange").src;
+        if (img!= "img/logo.png") {
+            document.getElementById("logoChange").src  = "img/logoDark.png";
+        }
+         else {
+           document.getElementById("logChange").src = "img/logo.png";
+       }
+
+ }
+

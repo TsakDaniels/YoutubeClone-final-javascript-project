@@ -16,13 +16,14 @@
             <span></span>
             <span></span>
         </div>
-        <a href="https://www.youtube.com/"><img src="img/logo.PNG" class="logo" alt=""></a>
+        <a href="https://www.youtube.com/"><img src="img/logo.PNG" class="logo" id="logoChange" alt=""></a>
         
         <div class="search-box">
             <input type="text" class="search-bar" placeholder="search">
             <button class="search-btn"><img src="img/search.PNG" alt=""></button>
         </div>
         <div class="user-options">
+            <button id="darkModeButton" class="icon" onclick="darkMode()">Dark Mode</button>
             <img src="img/video.PNG" class="icon" alt="">
             <img src="img/grid.PNG" class="icon" alt="">
             <img src="img/bell.PNG" class="icon" alt="">
@@ -37,13 +38,13 @@
         <a href="#" class="links active"><img src="img/home.PNG" alt="">home</a>
         <a href="#" class="links"><img src="img/explore.PNG" alt="">explore</a>
         <a href="#" class="links"><img src="img/subscription.PNG" alt="">subscription</a>
-        <hr class="seperator">
+        <hr class="separator">
         <a href="#" class="links"><img src="img/library.PNG" alt="">library</a>
         <a href="#" class="links"><img src="img/history.PNG" alt="">history</a>
         <a href="#" class="links"><img src="img/your-video.PNG" alt="">your video</a>
         <a href="#" class="links"><img src="img/watch-later.PNG" alt="">watch later</a>
         <a href="#" class="links"><img src="img/liked video.PNG" alt="">like video</a>
-        <div class="dropdown"></div>
+        
         <button onclick="dropdownMenu()" class="links btn dropbtn"><img src="img/show more.PNG" alt="">Show More</button>
         <div id="myDropdown" class="dropdown-content">
             <a href="#">Channel1</a>
@@ -74,7 +75,17 @@
     </div>
 
     <!-- videos -->
-    <div class="video-container vid-cursor grid-container">
+    <div class="video-containerUS vid-cursor grid-container">
+        <div class="titlePopular">Most popular US</div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="video-containerGR vid-cursor grid-container">
+        <div class="titlePopular">Most popular GR</div>
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 
     <script src="https://apis.google.com/js/api.js"></script>
