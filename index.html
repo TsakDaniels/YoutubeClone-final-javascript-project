@@ -11,7 +11,7 @@
 <body>
 
     <nav class="navbar">
-        <div class="toggle-btn">
+        <div class="toggle-btn" onclick="showSidebar()">
             <span></span>
             <span></span>
             <span></span>
@@ -34,7 +34,7 @@
     </nav>
 
     <!-- sidebar -->
-    <div class="side-bar">
+    <div id="sidebar" class="side-bar">
         <a href="#" class="links active"><img src="img/home.PNG" alt="">home</a>
         <a href="#" class="links"><img src="img/explore.PNG" alt="">explore</a>
         <a href="#" class="links"><img src="img/subscription.PNG" alt="">subscription</a>
@@ -75,13 +75,13 @@
     </div>
 
     <!-- videos -->
-    <div class="video-containerUS vid-cursor grid-container">
+    <div id="Us" class="video-containerUS vid-cursor grid-container">
         <div class="titlePopular">Most popular US</div>
         <div></div>
         <div></div>
         <div></div>
     </div>
-    <div class="video-containerGR vid-cursor grid-container">
+    <div id="Gr" class="video-containerGR vid-cursor grid-container">
         <div class="titlePopular">Most popular GR</div>
         <div></div>
         <div></div>

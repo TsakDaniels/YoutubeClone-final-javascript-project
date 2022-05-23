@@ -1,7 +1,11 @@
 const videoCardContainerGR = document.querySelector('.video-containerGR');
 const videoCardContainerUS = document.querySelector('.video-containerUS')
 
-let api_key = "AIzaSyCUxOrR3OavIe-6Pja4GuIcoguqVUQ3di4";
+
+//first key AIzaSyCUxOrR3OavIe-6Pja4GuIcoguqVUQ3di4
+//second key AIzaSyChAWkWcwd1QY24wvtlgQZzaCYMLqCwBSg
+
+let api_key = "AIzaSyChAWkWcwd1QY24wvtlgQZzaCYMLqCwBSg";
 let video_http = "https://www.googleapis.com/youtube/v3/videos?";
 let channel_http = "https://www.googleapis.com/youtube/v3/channels?";
 
@@ -97,8 +101,6 @@ const makeVideoCard2 = (data) => {
     `;
 }
 
-
-
 // search bar
 const searchInput = document.querySelector('.search-bar');
 const searchBtn = document.querySelector('.search-btn');
@@ -109,6 +111,7 @@ searchBtn.addEventListener('click', () => {
         location.href = searchLink + searchInput.value;
     }
 })
+
 
 //Show more menu
 function dropdownMenu() {
@@ -143,3 +146,22 @@ function dropdownMenu() {
 
  }
 
+
+ function showSidebar(){
+    var x = document.getElementById("sidebar");
+    var y = document.getElementById("Us");
+    var z = document.getElementById("Gr");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.marginLeft = "250px";
+        z.style.marginLeft = "250px";
+        y.style.width = "85%";
+        z.style.width = "85%";
+    } else {
+        x.style.display = "none";
+        y.style.marginLeft = "0px";
+        z.style.marginLeft = "0px";
+        y.style.width = "100%";
+        z.style.width = "100%";
+    }
+ }

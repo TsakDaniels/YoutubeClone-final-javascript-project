@@ -55,7 +55,7 @@ body{
 .logo{
     height: 30px;
     margin: -10px 30px 0;
-    margin-right: 300px;
+    margin-right: 0px;
     cursor: pointer;
 }
 
@@ -66,19 +66,9 @@ body{
     height: 35px;
     display: flex; 
     background: inherit;
-}
-@media only screen and (max-width: 900px) {
-
-    .search-box {
-      display: none;
-    }
-    .logo{
-        height: 30px;
-        margin: -10px 30px 0;
+    margin-left: 300px;
 }
 
-
-}
 
 
 .search-bar{
@@ -134,7 +124,6 @@ body{
 }
 
 /* side-bar */
-
 .side-bar{
     position: fixed;
     top: 60px;
@@ -167,7 +156,7 @@ body{
 
 .links:hover,
 .links.active{
-    background: rgba(0, 0, 0, 0.1);
+    background: inherit;
 }
 
 .separator{
@@ -206,14 +195,14 @@ body{
     border: 1px solid gray;
     text-transform: capitalize;
     margin-right: 10px;
-    color: inherit;
+    color:inherit;
     font-size: 15px;
     cursor: pointer;
 }
 
 .filter-options.active{
-    color: #fff;
-    background: #242424;
+    color: inherit;
+    background: inherit;
 }
 
 /* video */
@@ -254,10 +243,9 @@ body{
 
 .content{
     width: 100%;
-    height: 100px;
+    height: 80px;
     padding: 10px;
-    display: flex;
-    justify-content: space-between;
+    display: flex;    
 }
 
 .channel-icon{
@@ -296,9 +284,7 @@ body{
     cursor: pointer;
   }
   
-  .dropbtn:hover, .dropbtn:focus {
-    
-  }
+  
   
   .dropdown {
     position:inherit;
@@ -354,6 +340,42 @@ body{
       display: grid;
       grid-template-columns:1fr 1fr;
     }
+    .search-box {
+        display: none;
+      }
+
+      #darkModeButton {
+        display: none;
+    }
+
+    .side-bar {
+        display: none;
+    }
+
+    .links {
+        display: none;
+    }
+
+    .toggle-btn {
+        display: none;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .video-containerUS {
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .video-containerGR {
+        margin-left: 0px;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 @media only screen and (max-width: 800px) {
@@ -387,5 +409,5 @@ body{
 
 
 a {
-    color: #242424;
+    color: #a1a1a1;
 }
